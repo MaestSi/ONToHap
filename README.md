@@ -1,14 +1,14 @@
 # ONToHap
-A MinION-based pipeline for haplotype phasing
+A Oxford Nanopore Technology-based pipeline for haplotype phasing
 
-**ONToHap** is a .
+**ONToHap** is a user friendly ONT-based pipeline for performing haplotype phasing and for evaluating related accuracy, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
 
 ## Getting started
 
 **Prerequisites**
 
 * Miniconda3.
-Tested with conda 4.6.11.
+Tested with conda 4.6.14.
 ```which conda``` should return the path to the executable.
 If you don't have Miniconda3 installed, you could download and install it with:
 ```
@@ -31,4 +31,33 @@ Then, you can open the **config_ONToHap.R** file with a text editor and set the 
 
 ## Usage
 
-The ONToHap pipeline can be used either to phase variants stored in a vcf file using ONT long reads or to evaluate the accuracy of variant phasing, comparing the obtained results with a ground-truth phase.
+The ONToHap pipeline can be used either to phase variants stored in a VCF file using ONT long reads or to evaluate the accuracy of variant phasing tools, comparing the obtained results with a ground-truth phase. In both cases, the first step of the pipeline requires you to open the _config_ONToHap.R_ file with a text editor and to modify it according to the features of your preferences
+
+**Launch_ONToHap.sh**
+
+Usage:
+Launch_ONToHap.sh -f \<fastq_reads\> -u \<unphased_vcf\> -r \<reference_fasta\> -o \<output_dir\>
+
+Inputs:
+* \<fastq reads\>: fastq file containing ONT reads for one sample
+* \<unphased_vcf\>: VCF file storing variants to be phased
+* \<reference_fasta\>: fasta file containing the sequence corresponding to the region under study
+* \<output_dir\>: output directory where results are going to be stored
+
+Outputs:
+* \<sample_name>\_ONToHap_results: folder containing file _consensus_haplotype.vcf_ storing phased variants and folders with reads subsampled at each iteration and corresponding VCF files
+
+**Launch_ONToHap_accuracy_test.sh**
+
+Usage:
+Launch_ONToHap.sh -f \<fastq_reads\> -u \<unphased_vcf\> -p \<ground_truth_phased_vcf\> -r \<reference_fasta\> -o \<output_dir\>
+
+Inputs:
+* \<fastq reads\>: fastq file containing ONT reads for one sample
+* \<unphased_vcf\>: VCF file storing variants to be phased
+* \<ground_truth_phased_vcf>: VCF file storing ground-truth phased variants, used for evaluating accuracy of ONT-based phasing
+* \<reference_fasta\>: fasta file containing the sequence corresponding to the region under study
+* \<output_dir\>: output directory where results are going to be stored
+
+Outputs:
+* \<sample_name>\_ONToHap_results: folder containing file _Report_\<aligner\>_\<phaser\>_\<num_reads\>_reads_\<num_iterations\>_iterations_ storing phasing accuracy and folders with reads subsampled at each iteration and corresponding VCF files

@@ -16,3 +16,6 @@ ln -s $PIPELINE_DIR/HapCUT2/build/HAPCUT2 $MINICONDA_DIR
 
 echo "MINICONDA_DIR=$MINICONDA_DIR" | cat - tools.sh > temp && mv temp tools.sh
 chmod 755 tools.sh
+
+echo "PIPELINE_DIR=$PIPELINE_DIR"
+echo "SEQTK="$MINICONDA_DIR"/seqtk"

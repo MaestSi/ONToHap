@@ -7,12 +7,12 @@ aligner <- "Minimap2"
 phaser <- "Whatshap"
 #phaser <- "HapCHAT"
 #number of subsamplings
-K <- 100
-#numerosity of each sample
-X <- 10000
+K <- 10
+#number of reads for each subsampling
+X <- 1000
 ##########################################################################################################
-SEQTK <- "/home/simone/miniconda3/envs/ONToHap_env/bin/seqtk"
-PIPELINE_DIR <- "/home/simone/MinION/MinION_scripts/ONToHap"
+SEQTK <- "/path/to/seqtk"
+PIPELINE_DIR <- "/path/to/ONToHap"
 #phase_reads.sh
 phase_reads <- paste0(PIPELINE_DIR, "/phase_reads.sh")
 #combine_iterations.R

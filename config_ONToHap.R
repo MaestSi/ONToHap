@@ -8,7 +8,7 @@ phaser <- "Whatshap"
 #phaser <- "HapCHAT"
 #number of subsamplings
 K <- 10
-#number of reads for each subsampling
+#numerosity of each sample
 X <- 1000
 ##########################################################################################################
 SEQTK <- "/path/to/seqtk"

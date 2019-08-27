@@ -49,7 +49,7 @@ Outputs:
 **Launch_ONToHap_accuracy_test.sh**
 
 Usage:
-Launch_ONToHap.sh -f \<fastq_reads\> -u \<unphased_vcf\> -p \<ground_truth_phased_vcf\> -r \<reference_fasta\> -o \<output_dir\>
+Launch_ONToHap_accuracy_test.sh -f \<fastq_reads\> -u \<unphased_vcf\> -p \<ground_truth_phased_vcf\> -r \<reference_fasta\> -o \<output_dir\>
 
 Inputs:
 * \<fastq reads\>: fastq file containing ONT reads for one sample

@@ -1,7 +1,7 @@
 # ONToHap
 A Oxford Nanopore Technology-based pipeline for haplotype phasing
 
-**ONToHap** is a user friendly ONT-based pipeline for performing haplotype phasing and for evaluating related accuracy, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
+**ONToHap** is a ONT-based pipeline for performing haplotype phasing and for evaluating haplotype phasing accuracy, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
 
 ## Getting started
 
@@ -31,7 +31,7 @@ Then, you can open the **config_ONToHap.R** file with a text editor and set the 
 
 ## Usage
 
-The ONToHap pipeline can be used either to phase variants stored in a VCF file using ONT long reads or to evaluate the accuracy of variant phasing tools, comparing the obtained results with a ground-truth phase. In both cases, the first step of the pipeline requires you to open the _config_ONToHap.R_ file with a text editor and to modify it according to the features of your preferences
+The ONToHap pipeline can be used either to phase variants stored in a VCF file using ONT long reads or to evaluate the accuracy of variant phasing tools, comparing the obtained results with a ground-truth phase. In both cases, the first step of the pipeline requires you to open the _config_ONToHap.R_ file with a text editor and to modify it according to your preferences.
 
 **Launch_ONToHap.sh**
 

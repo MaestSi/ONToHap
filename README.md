@@ -1,5 +1,4 @@
 # ONToHap
-A Oxford Nanopore Technology-based pipeline for haplotype phasing
 
 **ONToHap** is a ONT-based pipeline for performing haplotype phasing and for evaluating haplotype phasing accuracy, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
 

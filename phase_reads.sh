@@ -30,8 +30,8 @@ PIPELINE_DIR=$(realpath $( dirname "${BASH_SOURCE[0]}" ))
 source $PIPELINE_DIR"/tools.sh"
 
 #choose if performing phasing in 2 steps or 1 step when using Whatshap
-#two_steps=FALSE
-two_steps=TRUE
+two_steps=FALSE
+#two_steps=TRUE
 
 $SAMTOOLS faidx $reference
 fasta_reads=$(sed "s/\\.fastq/\\.fasta/g" <<< $fastq_reads)

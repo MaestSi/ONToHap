@@ -72,7 +72,7 @@ After running **Launch_ONToHap_accuracy_test.sh**, you may be interested in plot
 If you are also interested in understanding which are the most problematic variants to be phased, you may be interested in plotting the phasing accuracy split by variant too.
 
 <p align="center">
-  <img src="Figures/S1_acc_by_pos.png" alt="drawing" width="700" title="Phasing accuracy by position">
+  <img src="Figures/S1_acc_by_pos.png" alt="drawing" width="500" title="Phasing accuracy by position">
 </p>
 
 

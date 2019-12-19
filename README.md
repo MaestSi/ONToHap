@@ -60,3 +60,20 @@ Inputs:
 
 Outputs:
 * \<sample_name>\_ONToHap_results: folder containing file _Report\_\<aligner\>\_\<phaser\>\_\<num_reads\>\_reads\_\<num\_iterations\>\_iterations_ storing phasing accuracy and folders with reads subsampled at each iteration and corresponding VCF files
+
+## Plotting results
+
+After running **Launch_ONToHap_accuracy_test.sh**, you may be interested in plotting phasing accuracy results. For this purpose, you may use **Plot_phasing_accuracy_tests.R** script as a starting point. This is how the accuracy of reconstructing the full haplotype for different number of input reads may look like.
+
+<p align="center">
+  <img src="Figures/S1_full_haplotype.jpeg" alt="drawing" width="400" title="Phasing accuracy full haplotype">
+</p>
+
+If you are also interested in understanding which are the most problematic variants to be phased, you may be interested in plotting the phasing accuracy split by variant too.
+
+<p align="center">
+  <img src="Figures/S1_acc_by_pos.png" alt="drawing" width="700" title="Phasing accuracy by position">
+</p>
+
+
+

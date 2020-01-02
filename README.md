@@ -69,7 +69,7 @@ After running **Launch_ONToHap_accuracy_test.sh**, you may be interested in plot
   <img src="Figures/S1_full_haplotype.jpeg" alt="drawing" width="400" title="Phasing accuracy full haplotype">
 </p>
 
-If you are also interested in understanding which are the most problematic variants to be phased, you may be interested in plotting the phasing accuracy split by variant too.
+If you are also interested in understanding which are the most problematic variants to be phased, you may want to plot the phasing accuracy split by variant too.
 
 <p align="center">
   <img src="Figures/S1_acc_by_pos.png" alt="drawing" width="500" title="Phasing accuracy by position">

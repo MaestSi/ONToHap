@@ -28,6 +28,12 @@ chmod 755 *
 A conda environment named _ONToHap_env_ is created, where seqtk, minimap2, bwa, whatshap, samtools and R are installed. Moreover, HapCUT2 is installed to the _ONToHap_ directory and the executables are linked to the _ONToHap_env_ bin directory.
 Then, you can open the **config_ONToHap.R** file with a text editor and set the variables _PIPELINE_DIR_ and _SEQTK_ to the value suggested by the installation step.
 
+## Accuracy test overview
+
+<p align="center">
+  <img src="Figures/ONToHap_pipeline_flowchart.png" alt="drawing" width="700" title="ONToHap_pipeline_flowchart">
+</p>
+
 ## Usage
 
 The ONToHap pipeline can be used either to phase variants stored in a VCF file using ONT long reads or to evaluate the accuracy of variant phasing tools, comparing the obtained results with a ground-truth phase. In both cases, the first step of the pipeline requires you to open the _config_ONToHap.R_ file with a text editor and to modify it according to your preferences.

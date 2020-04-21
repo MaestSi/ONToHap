@@ -48,7 +48,7 @@ do
            echo "Reference fasta: $reference_fasta"
            ;;
       -o)
-           output_dir=$(realpath $2)
+           output_dir=$2
            shift 2
            echo "Output directory: $output_dir"
            ;;
@@ -67,6 +67,11 @@ do
     esac
 done
 
+if [ ! -d $output_dir ]; then
+  mkdir $output_dir
+fi
+
+output_dir_full=$(realpath $output_dir)
 source activate ONToHap_env
 PIPELINE_DIR=$(realpath $( dirname "${BASH_SOURCE[0]}" ))
-nohup Rscript $PIPELINE_DIR/ONToHap.R $fastq_reads $unphased_vcf $reference_fasta $output_dir &
+nohup Rscript $PIPELINE_DIR/ONToHap.R $fastq_reads $unphased_vcf $reference_fasta $output_dir_full &

@@ -60,7 +60,7 @@ if (!dir.exists(output_dir_curr_X)) {
     subset_reads_curr_iteration <- paste0(output_dir_curr_X, "/", X, "_reads_subset_", i, "/reads.fastq")
     system(command = paste0("ln -s ", output_dir, "/subsampled_reads/", X, "_reads_subset_", i, ".fastq", " ", subset_reads_curr_iteration))
     output_dir_curr_iteration <- paste0(output_dir_curr_X, "/", X, "_reads_subset_", i)
-    system(command = paste0(phase_reads, " ", subset_reads_curr_iteration, " ", reference_seq, " ", aligner, " ", phaser, " ", unphased_VCF_file, " ", output_dir_curr_iteration, " ", combine_phasers))
+    system(command = paste0(phase_reads, " ", subset_reads_curr_iteration, " ", reference_seq, " ", aligner, " ", phaser, " ", unphased_VCF_file, " ", output_dir_curr_iteration, " ", combine_phasers, " ", two_steps_flag))
   }
 }
 

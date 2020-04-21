@@ -21,16 +21,17 @@
 aligner <- "Minimap2"
 #aligner <- "BWA"
 #phaser
-#phaser <- "HapCUT2"
-phaser <- "Whatshap"
+phaser <- "HapCUT2"
+#phaser <- "Whatshap"
 #phaser <- "HapCHAT"
 #number of subsamplings
 K <- 10
 #numerosity of each sample
-X <- 1000
-#SEQTK
-SEQTK <- "seqtk"
-#PIPELINE DIR
+X <- 100
+#choose if performing phasing in 2 steps (two_steps_flag <- 1) or 1 step (two_steps_flag <- 0) when using Whatshap 
+two_steps_flag <- 1
+##########################################################################################################
+SEQTK <- "/path/to/seqtk"
 PIPELINE_DIR <- "/path/to/ONToHap"
 ############ End of user editable region #################################################################
 #phase_reads.sh

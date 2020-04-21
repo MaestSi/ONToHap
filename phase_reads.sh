@@ -25,13 +25,10 @@ phaser=$4
 unphased_vcf=$5
 output_dir=$6
 combine_phasers=$7
+two_steps_flag=$8
 
 PIPELINE_DIR=$(realpath $( dirname "${BASH_SOURCE[0]}" ))
 source $PIPELINE_DIR"/tools.sh"
-
-#choose if performing phasing in 2 steps or 1 step when using Whatshap
-two_steps=FALSE
-#two_steps=TRUE
 
 $SAMTOOLS faidx $reference
 fasta_reads=$(sed "s/\\.fastq/\\.fasta/g" <<< $fastq_reads)
@@ -46,8 +43,6 @@ if [ "$aligner_uc" == "BWA" ]; then
   $BWA mem -x ont2d -t 30 $output_dir/reference_uc.fasta $fastq_reads | samtools view -h -F 2048 | samtools sort -o $output_dir/reads.filter.sorted.bam -T reads.tmp
 elif [ "$aligner_uc" == "MINIMAP2" ]; then
   #read mapping with Minimap2
-  #$SEQTK seq -A $fastq_reads > $fasta_reads
-  #$MINIMAP2 -ax map-ont $reference $fasta_reads | $SAMTOOLS view -h -F 2048 | $SAMTOOLS sort -o $output_dir/reads.filter.sorted.bam -T reads.tmp
   $MINIMAP2 -ax map-ont $output_dir/reference_uc.fasta $fastq_reads | $SAMTOOLS view -h -F 2048 | $SAMTOOLS sort -o $output_dir/reads.filter.sorted.bam -T reads.tmp
 else
   echo "Aligner $aligner is not supported (choose between BWA and Minimap2)"
@@ -57,7 +52,7 @@ fi
 $SAMTOOLS index $output_dir/reads.filter.sorted.bam
 
 if [ "$phaser_uc" == "WHATSHAP" ]; then
-  if [ "two_steps" == "TRUE" ]; then
+  if [[ "two_steps_flag" -eq 1 ]]; then
   #phasing with Whatshap 2 step (enable realignment only for step 1)
   $WHATSHAP phase $unphased_vcf $output_dir/reads.filter.sorted.bam -o $output_dir/phased_whatshap_output_no_indels.vcf --ignore-read-groups --tag=PS --reference $output_dir/reference_uc.fasta --algorithm whatshap
   $WHATSHAP phase $unphased_vcf $output_dir/reads.filter.sorted.bam -o $output_dir/phased_whatshap_output_with_indels.vcf --ignore-read-groups --indels --tag=PS --algorithm whatshap

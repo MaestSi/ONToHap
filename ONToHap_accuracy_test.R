@@ -36,8 +36,20 @@ reference_seq = args[4]
 output_dir_base = args[5]
 sample_name <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(fastq_reads_file))
 output_dir <- paste0(output_dir_base, "/", sample_name, "_ONToHap_results")
-#logfile
-logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_", X, "_reads_", K, "_iterations")
+phaser_uc <- toupper(phaser)
+
+if (phaser_uc == "WHATSHAP") {
+  if (two_steps_flag == "TRUE") {
+    #logfile
+    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_two_steps_", X, "_reads_", K, "_iterations")
+  } else {
+    #logfile
+    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_one_step_", X, "_reads_", K, "_iterations")
+  }
+} else {
+  #logfile
+  logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_", X, "_reads_", K, "_iterations")
+}
 
 #create output directory
 if (!dir.exists(output_dir)) {
@@ -65,11 +77,9 @@ if (!dir.exists(output_dir_curr_X)) {
     subset_reads_curr_iteration <- paste0(output_dir_curr_X, "/", X, "_reads_subset_", i, "/reads.fastq")
     system(command = paste0("ln -s ", output_dir, "/subsampled_reads/", X, "_reads_subset_", i, ".fastq", " ", subset_reads_curr_iteration))
     output_dir_curr_iteration <- paste0(output_dir_curr_X, "/", X, "_reads_subset_", i)
-    system(command = paste0(phase_reads, " ", subset_reads_curr_iteration, " ", reference_seq, " ", aligner, " ", phaser, " ", unphased_VCF_file, " ", output_dir_curr_iteration, " ", combine_phasers))
+    system(command = paste0(phase_reads, " ", subset_reads_curr_iteration, " ", reference_seq, " ", aligner, " ", phaser, " ", unphased_VCF_file, " ", output_dir_curr_iteration, " ", combine_phasers, " ", two_steps_flag))
   }
 }
-
-phaser_uc <- toupper(phaser)
 
 #evaluate phasing
 if (phaser_uc == "HAPCUT2") {

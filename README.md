@@ -25,7 +25,7 @@ chmod 755 *
 ./install.sh
 ```
 
-A conda environment named _ONToHap_env_ is created, where seqtk, minimap2, bwa, whatshap, samtools and R are installed. Moreover, HapCUT2 is installed to the _ONToHap_ directory and the executables are linked to the _ONToHap_env_ bin directory.
+A conda environment named _ONToHap_env_ is created, where seqtk, minimap2, bwa, whatshap, hapcut2, samtools and R are installed.
 Then, you can open the **config_ONToHap.R** file with a text editor and set the variables _PIPELINE_DIR_ and _SEQTK_ to the value suggested by the installation step.
 
 ## Accuracy test overview

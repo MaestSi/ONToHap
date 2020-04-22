@@ -1,6 +1,6 @@
 # ONToHap
 
-**ONToHap** is a ONT-based pipeline for performing haplotype phasing and for evaluating haplotype phasing accuracy, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
+**ONToHap** is a ONT-based pipeline for performing haplotype phasing and for evaluating haplotype phasing accuracy for amplicon data, supporting multiple aligners and phasers. It currently supports aligners _BWA_ and _Minimap2_, and phasers _WhatsHap_, _Hapchat_ and _HapCUT2_.
 
 ## Getting started
 

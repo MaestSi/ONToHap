@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-combine_iterations <- function(unphased_VCF_file, phased_VCF_files) {
+combine_iterations <- function(unphased_VCF_file, phased_VCF_files, sample_name) {
   unphased_VCF <- read.table(file = unphased_VCF_file, stringsAsFactors = FALSE)
   ind_het <- grep(x = unphased_VCF[, 10], pattern = "0/1")
   pos_het <- unphased_VCF[ind_het, 2]
@@ -39,6 +39,8 @@ combine_iterations <- function(unphased_VCF_file, phased_VCF_files) {
     
     if (i == 1) {
       phased_het[1, ] <- phased_chr
+      ind_header <- grep(x = readLines(con = phased_VCF_files[i]), pattern = "^#")
+      header <- readLines(con = phased_VCF_files[i])[ind_header]
     } else {
       num_matches <- length(which(phased_het[1, ] == phased_chr))
       num_matches_compl <- length(which(phased_het[1, ] == phased_chr_compl))
@@ -72,9 +74,8 @@ combine_iterations <- function(unphased_VCF_file, phased_VCF_files) {
   consensus_VCF[ind_het[ind_0_1], 10] <- "0|1"
   consensus_VCF[ind_het[ind_1_0], 10] <- "1|0"
 
-  header <- c("#CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO", "FORMAT", "")
-  consensus_VCF <- rbind(header, consensus_VCF)
-  consensus_VCF_file <- paste0(dirname(dirname(dirname(phased_VCF_files[1]))), "/consensus_haplotype.vcf")
-  write.table(x = consensus_VCF, file = consensus_VCF_file, quote = FALSE, row.names = FALSE, sep = "\t", col.names = FALSE)
+  consensus_VCF_file <- paste0(dirname(dirname(dirname(phased_VCF_files[1]))), "/", sample_name, "_consensus_haplotype.vcf")
+  write.table(x = header, file = consensus_VCF_file, quote = FALSE, row.names = FALSE, sep = "\t", col.names = FALSE)
+  write.table(x = consensus_VCF, file = consensus_VCF_file, quote = FALSE, row.names = FALSE, sep = "\t", col.names = FALSE, append = TRUE)
   return(haplotype_consensus_chr) 
 }

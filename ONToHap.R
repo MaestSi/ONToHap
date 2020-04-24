@@ -74,4 +74,4 @@ if (length(grep("HapCUT2", phaser, ignore.case=TRUE)) != 0) {
 }
 
 phased_VCF_files <- list.files(path = output_dir_curr_X, recursive = TRUE, pattern = pattern_vcf, ignore.case = TRUE, full.names = TRUE)
-haplotype_consensus_chr <- combine_iterations(unphased_VCF_file, phased_VCF_files)
+haplotype_consensus_chr <- combine_iterations(unphased_VCF_file, phased_VCF_files, sample_name)

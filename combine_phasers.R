@@ -81,6 +81,6 @@ if (exists("ind_sub")) {
   }
 }
 
-combined_VCF_file <- paste0(dirname(VCF_file_with_indels), "/phased_whatshap_output.VCF")
+combined_VCF_file <- paste0(dirname(VCF_file_with_indels), "/phased_whatshap_output.vcf")
 write.table(x = header, file = combined_VCF_file, quote = FALSE, row.names = FALSE, sep = "\t", col.names = FALSE)
 write.table(x = combined_VCF, file = combined_VCF_file, quote = FALSE, row.names = FALSE, sep = "\t", col.names = FALSE, append = TRUE)

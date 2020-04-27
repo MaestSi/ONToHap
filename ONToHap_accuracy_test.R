@@ -35,20 +35,20 @@ reference_seq = args[4]
 #output_dir
 output_dir_base = args[5]
 sample_name <- sub(pattern = "(.*)\\..*$", replacement = "\\1", basename(fastq_reads_file))
-output_dir <- paste0(output_dir_base, "/", sample_name, "_ONToHap_results")
+output_dir <- paste0(output_dir_base, "/", sample_name, "_ONToHap_accuracy_test")
 phaser_uc <- toupper(phaser)
 
 if (phaser_uc == "WHATSHAP") {
-  if (two_steps_flag == "TRUE") {
+  if (two_steps_flag == 1) {
     #logfile
-    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_two_steps_", X, "_reads_", K, "_iterations")
+    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_two_steps_", X, "_reads_", K, "_iterations.txt")
   } else {
     #logfile
-    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_one_step_", X, "_reads_", K, "_iterations")
+    logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_one_step_", X, "_reads_", K, "_iterations.txt")
   }
 } else {
   #logfile
-  logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_", X, "_reads_", K, "_iterations")
+  logfile <- paste0(output_dir, "/Report_", aligner, "_", phaser, "_", X, "_reads_", K, "_iterations.txt")
 }
 
 #create output directory

@@ -65,7 +65,7 @@ Inputs:
 * \<output_dir\>: output directory where results are going to be stored
 
 Outputs:
-* \<sample_name>\_ONToHap_results: folder containing file _Report\_\<aligner\>\_\<phaser\>\_\<num_reads\>\_reads\_\<num\_iterations\>\_iterations_ storing phasing accuracy and folders with reads subsampled at each iteration and corresponding VCF files
+* \<sample_name>\_ONToHap_results: folder containing file _Report\_\<aligner\>\_\<phaser\>\_\<num_reads\>\_reads\_\<num\_iterations\>\_iterations.txt_ storing phasing accuracy and folders with reads subsampled at each iteration and corresponding VCF files
 
 ## Plotting results
 

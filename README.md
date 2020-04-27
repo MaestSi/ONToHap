@@ -81,5 +81,7 @@ If you are also interested in understanding which are the most problematic varia
   <img src="Figures/S1_acc_by_pos.png" alt="drawing" width="500" title="Phasing accuracy by position">
 </p>
 
+## Citation
 
+If this tool is useful for your work, please consider citing our [manuscript](https://tba.org).
 

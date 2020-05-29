@@ -83,5 +83,5 @@ If you are also interested in understanding which are the most problematic varia
 
 ## Citation
 
-If this tool is useful for your work, please consider citing our [manuscript](https://tba.org).
+If this tool is useful for your work, please consider citing our [manuscript](https://tobeannounced.org).
 

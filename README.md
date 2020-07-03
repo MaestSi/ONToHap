@@ -7,7 +7,7 @@
 **Prerequisites**
 
 * Miniconda3.
-Tested with conda 4.6.14.
+Tested with conda 4.8.13.
 ```which conda``` should return the path to the executable.
 If you don't have Miniconda3 installed, you could download and install it with:
 ```

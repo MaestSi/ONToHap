@@ -55,7 +55,7 @@ if [ "$phaser_uc" == "WHATSHAP" ]; then
   if [[ "two_steps_flag" -eq 1 ]]; then
   #phasing with Whatshap 2 step (enable realignment only for step 1)
   $WHATSHAP phase $unphased_vcf $output_dir/reads.filter.sorted.bam -o $output_dir/phased_whatshap_output_no_indels.vcf --ignore-read-groups --tag=PS --reference $output_dir/reference_uc.fasta --algorithm whatshap
-  $WHATSHAP phase $unphased_vcf $output_dir/reads.filter.sorted.bam -o $output_dir/phased_whatshap_output_with_indels.vcf --ignore-read-groups --indels --tag=PS --algorithm whatshap
+  $WHATSHAP phase $unphased_vcf $output_dir/reads.filter.sorted.bam -o $output_dir/phased_whatshap_output_with_indels.vcf --ignore-read-groups --indels --tag=PS --no-reference --algorithm whatshap
   #combine phasing software's outputs
   $RSCRIPT $combine_phasers $output_dir/phased_whatshap_output_no_indels.vcf $output_dir/phased_whatshap_output_with_indels.vcf
   else

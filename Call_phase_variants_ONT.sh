@@ -37,4 +37,4 @@ $MINIMAP2 -ax map-ont --MD -t $THREADS  $REFERENCE $READS | $SAMTOOLS view -h | 
 $SAMTOOLS index $BAM
 $MEDAKA"_variant" -i $BAM -f $REFERENCE -s $MEDAKA_MODEL_SNPS -m $MEDAKA_MODEL_VARIANTS -p $SAMPLE_NAME"_phased.vcf" -t $THREADS -o $OUTPUT_DIR
 cat $OUTPUT_DIR"/round_1_phased.vcf" | grep -P "^#|PASS" > $SAMPLE_NAME"_phased_PASS.vcf"
-k
+

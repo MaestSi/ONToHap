@@ -31,7 +31,10 @@ THREADS=24
 
 SAMPLE_NAME=$(echo $(basename $READS) | sed 's/\.fast.//g')
 BAM=$(realpath $(dirname $READS))"/"$SAMPLE_NAME".bam"
+OUTPUT_DIR=$(realpath $(dirname $READS))"/"$SAMPLE_NAME"_medaka_variant"
+
 $MINIMAP2 -ax map-ont --MD -t $THREADS  $REFERENCE $READS | $SAMTOOLS view -h | $SAMTOOLS sort -o $BAM -T reads.tmp
 $SAMTOOLS index $BAM
-$MEDAKA"_variant" -i $BAM -f $REFERENCE -s $MEDAKA_MODEL_SNPS -m $MEDAKA_MODEL_VARIANTS -p $SAMPLE_NAME"_phased.vcf" -t $THREADS
-cat "medaka_variant/round_1_phased.vcf" | grep -P "^#|PASS" > $SAMPLE_NAME"_phased_PASS.vcf"
+$MEDAKA"_variant" -i $BAM -f $REFERENCE -s $MEDAKA_MODEL_SNPS -m $MEDAKA_MODEL_VARIANTS -p $SAMPLE_NAME"_phased.vcf" -t $THREADS -o $OUTPUT_DIR
+cat $OUTPUT_DIR"/round_1_phased.vcf" | grep -P "^#|PASS" > $SAMPLE_NAME"_phased_PASS.vcf"
+k

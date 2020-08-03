@@ -25,12 +25,13 @@ REFERENCE=$2
 MINIMAP2=/path/to/minimap2
 SAMTOOLS=/path/to/samtools
 MEDAKA=/path/to/medaka
-MEDAKA_MODEL="r941_min_high_g360"
+MEDAKA_MODEL_SNPS="r941_min_high_g360"
+MEDAKA_MODEL_VARIANTS="r941_min_high_g360"
 THREADS=24
 
 SAMPLE_NAME=$(echo $(basename $READS) | sed 's/\.fast.//g')
 BAM=$(realpath $(dirname $READS))"/"$SAMPLE_NAME".bam"
 $MINIMAP2 -ax map-ont --MD -t $THREADS  $REFERENCE $READS | $SAMTOOLS view -h | $SAMTOOLS sort -o $BAM -T reads.tmp
 $SAMTOOLS index $BAM
-$MEDAKA"_variant" -i $BAM -f $REFERENCE -s $MEDAKA_MODEL -m $MEDAKA_MODEL -p $SAMPLE_NAME"_phased.vcf" -t $THREADS
+$MEDAKA"_variant" -i $BAM -f $REFERENCE -s $MEDAKA_MODEL_SNPS -m $MEDAKA_MODEL_VARIANTS -p $SAMPLE_NAME"_phased.vcf" -t $THREADS
 cat "medaka_variant/round_1_phased.vcf" | grep -P "^#|PASS" > $SAMPLE_NAME"_phased_PASS.vcf"

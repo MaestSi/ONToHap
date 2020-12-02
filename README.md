@@ -85,5 +85,6 @@ If you are also interested in understanding which are the most problematic varia
 
 ## Citation
 
-If this tool is useful for your work, please consider citing our [manuscript](https://tobeannounced.org).
+If this tool is useful for your work, please consider citing our [manuscript](https://www.mdpi.com/1422-0067/21/23/9177).
 
+Maestri, S.; Maturo, M.G.; Cosentino, E.; Marcolungo, L.; Iadarola, B.; Fortunati, E.; Rossato, M.; Delledonne, M. A Long-Read Sequencing Approach for Direct Haplotype Phasing in Clinical Settings. Int. J. Mol. Sci. 2020, 21, 9177.
